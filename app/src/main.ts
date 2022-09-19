@@ -2,10 +2,8 @@
 
 import { createPinia } from 'pinia';
 import { createApp } from 'vue';
-import { version } from '../package.json';
 import App from './app.vue';
 import { registerComponents } from './components/register';
-import { DIRECTUS_LOGO } from './constants';
 import { registerDirectives } from './directives/register';
 import { registerPanels } from './panels/register';
 import { registerDisplays } from './displays/register';
@@ -20,17 +18,7 @@ import { registerOperations } from './operations/register';
 
 init();
 
-async function init() {
-	console.log(DIRECTUS_LOGO);
-	console.info(
-		`Hey! Interested in helping build this open-source data management platform?\nIf so, join our growing team of contributors at: https://directus.chat`
-	);
-
-	if (import.meta.env.DEV) {
-		console.info(`%c🐰 Starting Directus v${version}...`, 'color:Green');
-	} else {
-		console.info(`%c🐰 Starting Directus...`, 'color:Green');
-	}
+async function init() {	
 
 	console.time('🕓 Application Loaded');
 
@@ -57,11 +45,7 @@ async function init() {
 
 	console.timeEnd('🕓 Application Loaded');
 
-	console.group(`%c✨ Project Information`, 'color:DodgerBlue'); // groupCollapsed
-
-	if (import.meta.env.DEV) {
-		console.info(`%cVersion: v${version}`, 'color:DodgerBlue');
-	}
+	console.group(`%c✨ Project Information`, 'color:DodgerBlue'); // groupCollapsed	
 
 	console.info(`%cEnvironment: ${import.meta.env.MODE}`, 'color:DodgerBlue');
 	console.groupEnd();
