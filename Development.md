@@ -2,9 +2,7 @@
 
 git remote add upstream https://github.com/directus/directus
 
-
 git fetch upstream
-
 
 git rebase upstream/main
 
@@ -15,6 +13,8 @@ error: could not apply a29f0dd70... package.json change npm registry name
 ```
 
 git add app/package.json
+
+git rebase --continue
 
 
 ### Foldering structure
