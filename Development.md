@@ -1,19 +1,20 @@
 ### Rebase
-
+```
 git remote add upstream https://github.com/directus/directus
-
 git fetch upstream
-
 git rebase upstream/main
+```
 
 ```
 Auto-merging app/package.json
 CONFLICT (content): Merge conflict in app/package.json
 error: could not apply a29f0dd70... package.json change npm registry name
 ```
-
+```
+<!-- check merge conflict -->
+git diff --check
+```
 git add app/package.json
-
 git rebase --continue
 
 
