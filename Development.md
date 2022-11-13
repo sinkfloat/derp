@@ -1,24 +1,4 @@
-### Rebase
-```
-git remote add upstream https://github.com/directus/directus
-git fetch upstream
-git rebase upstream/main
-```
-
-```
-Auto-merging app/package.json
-CONFLICT (content): Merge conflict in app/package.json
-error: could not apply a29f0dd70... package.json change npm registry name
-```
-```
-<!-- check merge conflict -->
-git diff --check
-```
-git add app/package.json
-git rebase --continue
-
-
-### Foldering structure
+## Foldering structure
 
 api => core backend, to handling main logic of the directus like ItemsService, RelationsService, FieldsService, Webhook
 and etc
@@ -35,7 +15,7 @@ packages/schema => schema inspector for all supported databases
 
 packages/drive\* => for handling storage
 
-### Development Rule
+## Development Rule
 
 There are something that you must to be careful. In NPM, the package can dependant to another package and we can see the
 dependecy on package.json file.
@@ -46,11 +26,17 @@ you must edit package.json on the <b>api</b> package build it and push to the NP
 
 NB: you cant push same version of package more than one to NPM registry
 
-### Building
+## 2. Build: Deploy npm pacakge
 
 Example case: My current state the version of @synqueit/app is 9.18.0
 
 - After modification of app you must upgrade your package version
+```
+<!-- install the dev dependencies -->
+yarn
+<!-- build distribution with vite -->
+npm run build
+```
 
 ```
 npm version patch
@@ -74,7 +60,7 @@ You must read the semantic version rule to understand that
 
 - Build it with "npm run build" to generate static files of the app
 
-### Push to npm registry
+## Push to npm registry
 
 - run "npm login" and input your NPM credential
 
@@ -85,3 +71,39 @@ You must read the semantic version rule to understand that
 ```
 
 - or else you can just run that command without "--access public"
+
+## 2. Rebase (Upgrade) "API" version
+- change the dependency of "app"
+  ```
+    "@directus/app": "npm:@synqueit/app@9.20.4"
+  ```
+- change the "name" property of ~/api/package.json
+  ```
+    "name": "@synqueit/derp"
+  ```
+```
+yarn
+npm run build
+npm version patch
+npm publish --access public
+```
+
+
+## 1. Rebase with source
+```
+git remote add upstream https://github.com/directus/directus
+git fetch upstream
+git rebase upstream/main
+```
+
+```
+Auto-merging app/package.json
+CONFLICT (content): Merge conflict in app/package.json
+error: could not apply a29f0dd70... package.json change npm registry name
+```
+```
+<!-- check merge conflict -->
+git diff --check
+```
+git add app/package.json
+git rebase --continue
