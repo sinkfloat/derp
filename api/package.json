@@ -1,6 +1,6 @@
 {
-	"name": "directus",
-	"version": "9.20.4",
+	"name": "@synqueit/derp",
+	"version": "9.20.5",
 	"license": "GPL-3.0-only",
 	"homepage": "https://github.com/directus/directus#readme",
 	"description": "Directus is a real-time API and App dashboard for managing SQL database content.",
@@ -78,7 +78,7 @@
 	"dependencies": {
 		"@authenio/samlify-node-xmllint": "2.0.0",
 		"@aws-sdk/client-ses": "3.190.0",
-		"@directus/app": "workspace:*",
+		"@directus/app": "npm:@synqueit/app@9.20.4",
 		"@directus/drive": "workspace:*",
 		"@directus/drive-azure": "workspace:*",
 		"@directus/drive-gcs": "workspace:*",

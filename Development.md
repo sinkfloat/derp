@@ -72,24 +72,10 @@ You must read the semantic version rule to understand that
 
 - or else you can just run that command without "--access public"
 
-## 2. Rebase (Upgrade) "API" version
-- change the dependency of "app"
-  ```
-    "@directus/app": "npm:@synqueit/app@9.20.4"
-  ```
-- change the "name" property of ~/api/package.json
-  ```
-    "name": "@synqueit/derp"
-  ```
-```
-yarn
-npm run build
-npm version patch
-npm publish --access public
-```
 
 
 ## 1. Rebase with source
+CD into mono repo 
 ```
 git remote add upstream https://github.com/directus/directus
 git fetch upstream
@@ -107,3 +93,19 @@ git diff --check
 ```
 git add app/package.json
 git rebase --continue
+
+## 2. Rebase (Upgrade) "API" version
+- change the dependency of "app"
+  ```
+    "@directus/app": "npm:@synqueit/app@9.20.4"
+  ```
+- change the "name" property of ~/api/package.json
+  ```
+    "name": "@synqueit/derp"
+  ```
+```
+yarn
+npm run build
+npm version patch
+npm publish --access public
+```

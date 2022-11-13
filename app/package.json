@@ -1,5 +1,5 @@
 {
-	"name": "@directus/app",
+	"name": "@synqueit/app",
 	"version": "9.20.4",
 	"private": false,
 	"description": "Directus is an Open-Source Headless CMS & API for Managing Custom Databases",
